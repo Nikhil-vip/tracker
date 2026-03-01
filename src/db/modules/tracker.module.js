@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const trackerschema = newmongoose.Schema({
+const trackerschema = new mongoose.Schema({
   company: String,
   role: String,
   status: {
