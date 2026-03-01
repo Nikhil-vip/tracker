@@ -1,0 +1,24 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikhil-vip/tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikhil-vip/tracker/issues"
+  },
+  "homepage": "https://github.com/Nikhil-vip/tracker#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.2.3"
+  }
+}
