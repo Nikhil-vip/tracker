@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Nikhil-vip/tracker#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.2.3"
   }
 }

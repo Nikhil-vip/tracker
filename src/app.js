@@ -1,12 +1,8 @@
 const trackermodel = require('./db/modules/tracker.module');
+const usermodel = require('./db/modules/user.module');
+const authcontroller = require('./controller/auth.controller');
 const express = require('express');
-const hi = 1;
 const app = express();
 app.use(express.json());
-app.post('/about', async (req, res) => {
-  await res.send("data sent from posttmamn");
-})
-app.get('/tracker', async (req, res) => {
-  await res.send("data sent from gettmamn");
-})
+app.use('/api/auth', authroutes);
 module.exports = app;
