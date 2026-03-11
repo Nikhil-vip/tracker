@@ -2,6 +2,9 @@ body {
   height: 100%;
   width: 100;
   background: linear-gradient(135deg, #000000, #00d9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #big_cont {
@@ -12,68 +15,146 @@ body {
 }
 
 #container {
-  height: auto;
+  height: 500px;
   width: 400px;
+  background: black;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  border: 2px;
-  border-radius: 10px 10px 10px 10px;
-  background: linear-gradient(rgb(39, 63, 97), rgb(47, 86, 114));
-  animation: 1s spin linear infinite;
+  justify-content: space-evenly;
+  overflow: hidden;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#sword {
+  transform: scale(1);
+  margin: 0;
+}
+
+#container::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 150%;
+  top: -50px;
+  background: linear-gradient(135deg, #0d00fb, #00d9ff);
+  animation: spin 5s linear infinite;
+  transition: 0.2s all linear;
 }
 
 label {
   font-size: 2rem;
+  z-index: 1;
 }
 
 input {
-  margin: 20px;
   padding: 10px;
   width: 80%;
+  z-index: 1;
 }
 
 button {
-  margin: 10px;
   padding: 10px 20px;
   font-size: 1.5rem;
   background-color: rgb(0, 162, 255);
   color: black;
-  width: 50%;
+  width: 70%;
+  z-index: 1;
 }
 
-#spin {
-  height: 50px;
-  width: 100px;
-  background-color: rgb(0, 162, 255);
-  animation: 1s spin linear infinite;
-  border-top: black solid 2px;
-  border-right: #000000 solid 2px;
-  border-bottom: white solid 2px;
-  border-left: white solid 2px;
-  transition: smooth;
+button:hover {
+  background: linear-gradient(rgb(0, 208, 255), rgb(183, 182, 182));
+}
 
+h1 {
+  z-index: 1;
+}
+
+h3 {
+  z-index: 1;
 }
 
 @keyframes spin {
   0% {
-    border-top: black solid 2px;
-    border-bottom: white solid 2px;
-    border-left: 2px;
-    border-right: 2px;
-  }
-
-  50% {
-    border-left: white solid 2px;
-    border-right: black solid 2px;
-    border-top: 2px;
-    border-bottom: 2px;
+    transform: rotate(0deg);
   }
 
   100% {
-    border-top: black solid 2px;
-    border-bottom: white solid 2px;
-    border-left: 2px;
-    border-right: 2px;
+    transform: rotate(360deg);
+  }
+}
+
+#container::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(rgb(95, 126, 128), rgb(93, 113, 119));
+  inset: 5px;
+  border-radius: 15px;
+}
+
+/* --- Base Styles (Keep your existing desktop logic) --- */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Use min-height to prevent clipping */
+  width: 100%;
+  background: linear-gradient(135deg, #000000, #00d9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  /* Dynamic width: Use 90% on small screens, maxes at 400px */
+  width: 90%;
+  max-width: 400px;
+
+  /* Use min-height for content flexibility */
+  min-height: 500px;
+  height: auto;
+
+  background: black;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 20px;
+  /* Prevents content touching edges */
+}
+
+/* --- Mobile Specific Adjustments --- */
+
+@media (max-width: 480px) {
+  label {
+    font-size: 1.5rem;
+    /* Slightly smaller for mobile */
+  }
+
+  input {
+    width: 90%;
+    /* More breathing room */
+    padding: 12px;
+    /* Easier to tap with thumbs */
+    font-size: 16px;
+    /* Prevents iOS from auto-zooming on focus */
+  }
+
+  button {
+    width: 80%;
+    /* Wider button for easier interaction */
+    font-size: 1.2rem;
+  }
+
+  #container::before {
+    width: 50%;
+    /* Wider rotating beam to ensure coverage on mobile */
   }
 }
