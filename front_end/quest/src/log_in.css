@@ -31,8 +31,10 @@ body {
 }
 
 #sword {
-  transform: scale(1);
+  transform: scale(0.8);
   margin: 0;
+  position: relative;
+  top: 37px;
 }
 
 #container::before {
@@ -42,19 +44,21 @@ body {
   height: 150%;
   top: -50px;
   background: linear-gradient(135deg, #0d00fb, #00d9ff);
-  animation: spin 5s linear infinite;
-  transition: 0.2s all linear;
+  animation: spin 0.5s linear infinite;
+  transition: 1s all linear;
 }
 
 label {
   font-size: 2rem;
   z-index: 1;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 input {
   padding: 10px;
   width: 80%;
   z-index: 1;
+  border-radius: 20px;
 }
 
 button {
@@ -76,6 +80,8 @@ h1 {
 
 h3 {
   z-index: 1;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(0, 200, 255);
 }
 
 @keyframes spin {

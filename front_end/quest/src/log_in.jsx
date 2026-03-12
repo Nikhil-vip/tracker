@@ -1,12 +1,13 @@
 import './log_in.css';
 import sword from './assets/sword.svg';
+import loginbg from './assets/login_bg.svg';
 const LOGGIN = () => {
   return (
     <>
       <div id="big_cont">
         <div id="container">
           <h1>QUES
-
+            <img src={sword} alt="T" id="sword" />
           </h1>
           <h3>Initialize Your Carrer Journey</h3>
           <label for="username">Username:</label><br></br>
