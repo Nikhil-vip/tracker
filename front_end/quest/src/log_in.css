@@ -59,6 +59,7 @@ input {
   width: 80%;
   z-index: 1;
   border-radius: 20px;
+  margin: -10px 0;
 }
 
 button {
@@ -81,7 +82,7 @@ h1 {
 h3 {
   z-index: 1;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(0, 200, 255);
+  color: rgb(0, 221, 255);
 }
 
 @keyframes spin {
@@ -113,6 +114,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#grag {
+  z-index: 1;
+  position: relative;
+  color: rgb(0, 221, 255);
+  top: 50px;
+  transform: scale(4);
 }
 
 #container {
