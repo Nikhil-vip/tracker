@@ -1,12 +1,11 @@
-import './log_in.css';
+import Styles from './log_in.module.css';
 import sword from './assets/sword.svg';
 import { FaDragon } from 'react-icons/fa';
 const LOGGIN = () => {
   return (
     <>
       <div id="big_cont">
-
-        <div id="container">
+        <div className={Styles.container}>
           <div id="grag">
             <FaDragon id="dragon" /> {/* Capitalized */}
           </div>
