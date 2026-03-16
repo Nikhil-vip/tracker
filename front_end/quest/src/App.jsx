@@ -1,19 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import LOGGIN from './log_in'
+import LOGGIN from './Log_in.jsx'
 import REGISTER from './register.jsx'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/log_in' element={<LOGGIN />} />
-          <Route path='/register' element={<REGISTER />} />
-        </Routes>
-      </BrowserRouter>
+
+
+      <Routes>
+        <Route path="/" element={<REGISTER />} />
+        <Route path="/Log_in.jsx" element={<LOGGIN />} />
+      </Routes>
+
     </>
   )
 }
