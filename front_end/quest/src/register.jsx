@@ -12,7 +12,7 @@ const REGISTER = () => {
         </div>
         <h1 className={Styles.h1}>QUES
           <img src={sword} alt="T" className={Styles.sword} />
-        </h1 >
+        </h1>
         <h3 className={Styles.h3}>Create New Account</h3>
         <label for="Email">Email:</label><br></br>
         <input type="email" id="Email" name="Email" /><br></br>

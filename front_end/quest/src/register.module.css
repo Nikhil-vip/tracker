@@ -8,9 +8,16 @@ body {
 
 .scroll {
   color: rgb(99, 39, 4);
+  transform: scale(2.8);
   position: relative;
-  top: -20px;
-  transform: scale(3);
+  top: 20px;
+}
+
+.sword {
+  position: relative;
+  right: 5px;
+  top: -5px;
+  transform: scale(0.5);
 }
 
 .ok {
@@ -23,7 +30,7 @@ body {
   align-items: center;
   border-radius: 20px;
   justify-content: center;
-  height: 90vh;
+  height: 95vh;
   background: linear-gradient(rgb(0, 162, 255), rgb(183, 182, 182));
   /* Animate the hue rotation instead of the gradient itself */
   animation: rgb-shift 20s linear infinite;
@@ -61,6 +68,8 @@ button:hover {
 
 .h1 {
   z-index: 1;
+  position: relative;
+  top: 20px;
 }
 
 .h3 {
@@ -79,7 +88,7 @@ button:hover {
 
 .h5 {
   z-index: 1;
-  margin-bottom: -20px;
+  margin: auto;
 }
 
 .h5:hover {
