@@ -3,15 +3,18 @@ import Styles from './register.module.css';
 import { FaScroll } from 'react-icons/fa';
 import sword from './assets/sword.svg';
 import { useState } from 'react';
-const REGISTER = (event) => {
+import axios from 'axios';
+
+const REGISTER = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
-  console.log(email);
-  console.log(username);
-  console.log(password);
-  const handlesubmit = (event) => {
+
+  const handlesubmit = async (event) => {
+    event.preventDefault(); // Stop page reload immediately
+
+    // Validation logic
     if (email === "" || username === "" || password === "") {
       alert("Please fill all the fields");
       return;
@@ -24,9 +27,25 @@ const REGISTER = (event) => {
       alert("Please enter a valid email");
       return;
     }
-    event.preventDefault();
-    console.log("Form submitted");
-  }
+
+    try {
+      console.log("Attempting to send data to backend...");
+      const response = await axios.post('http://localhost:3000/api/auth/register', {
+        username,
+        email,
+        password
+      });
+
+      if (response.status === 201) {
+        alert("Registration successful, sir!");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Backend Error:", error.response?.data);
+      alert(error.response?.data?.message || "Something went wrong with the server connection.");
+    }
+  };
+
   return (
     <>
       <div className={Styles.ok}>
@@ -37,17 +56,27 @@ const REGISTER = (event) => {
           <img src={sword} alt="T" className={Styles.sword} />
         </h1>
         <h3 className={Styles.h3}>Create New Account</h3>
-        <label for="Email">Email:</label><br></br>
-        <input type="email" id="Email" name="Email" value={email} onChange={(e) => setemail(e.target.value)} /><br></br>
-        <label for="username">Username:</label><br></br>
-        <input type="text" id="username" name="username" value={username} onChange={(e) => setusername(e.target.value)} /><br></br>
-        <label for="password">Password:</label><br></br>
-        <input type="password" id="password" name="password" value={password} onChange={(e) => setpassword(e.target.value)} /><br></br>
-        <button className={Styles.button} onClick={handlesubmit}>Register</button>
-        <h5 className={Styles.h5} onClick={() => navigate("./Log_in.jsx")} >Already have an account?</h5>
-      </div>
 
+        {/* Wrapping in a form is the most reliable way to trigger handlesubmit */}
+        <form onSubmit={handlesubmit}>
+          <label htmlFor="Email">Email:</label><br />
+          <input type="email" id="Email" name="Email" value={email} onChange={(e) => setemail(e.target.value)} /><br />
+
+          <label htmlFor="username">Username:</label><br />
+          <input type="text" id="username" name="username" value={username} onChange={(e) => setusername(e.target.value)} /><br />
+
+          <label htmlFor="password">Password:</label><br />
+          <input type="password" id="password" name="password" value={password} onChange={(e) => setpassword(e.target.value)} /><br />
+
+          <button type="submit" className={Styles.button}>Register</button>
+        </form>
+
+        <h5 className={Styles.h5} onClick={() => navigate("/login")} style={{ cursor: 'pointer' }}>
+          Already have an account?
+        </h5>
+      </div>
     </>
-  )
-}
+  );
+};
+
 export default REGISTER;
