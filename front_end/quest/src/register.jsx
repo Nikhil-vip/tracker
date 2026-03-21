@@ -37,8 +37,10 @@ const REGISTER = () => {
       });
 
       if (response.status === 201) {
+        // Save the passport (token) in the browser
+        localStorage.setItem('token', response.data.token);
         alert("Registration successful, sir!");
-        navigate("/login");
+        navigate("/log_in.jsx");
       }
     } catch (error) {
       console.error("Backend Error:", error.response?.data);
@@ -71,7 +73,7 @@ const REGISTER = () => {
           <button type="submit" className={Styles.button}>Register</button>
         </form>
 
-        <h5 className={Styles.h5} onClick={() => navigate("/login")} style={{ cursor: 'pointer' }}>
+        <h5 className={Styles.h5} onClick={() => navigate("/log_in.jsx")} style={{ cursor: 'pointer' }}>
           Already have an account?
         </h5>
       </div>

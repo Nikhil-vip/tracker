@@ -2,20 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authroutes = require('../route/authroutes.js');
+// Make sure this path matches your folder name (route vs routes)
+const authroutes = require('./routes/authroutes.js');
+
 const app = express();
 
-app.use(cors()); // WHY: Stops the "CORS error" by telling the browser React is a friend.
-app.use(express.json()); // WHY: Translates incoming raw text into JS Objects we can read.
+// 1. SECURITY & PARSING (Must come BEFORE routes)
+app.use(cors());
+app.use(express.json());
+
+// 2. ROUTES
 app.use('/api/auth', authroutes);
 
+// 3. DATABASE
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("db connected"))
-  .catch((err) => console.log("this is your error", err));
+  .then(() => console.log("DB Connected, Sir!"))
+  .catch((err) => console.log("Connection Error:", err));
 
-app.get('/', (req, res) => {
-  res.send("hello world");
-})
-app.listen(3000, () => {
-  console.log("server is running on port 3000");
-});
+app.listen(3000, () => console.log("Server running on port 3000"));
