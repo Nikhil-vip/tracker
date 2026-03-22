@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // 2. The "Pre-save" Middleware (The Security Gate)
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function next() {
   // Only hash the password if it's new or being modified
   if (!this.isModified('password')) return next();
 
