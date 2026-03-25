@@ -95,11 +95,20 @@
 
 .main {
   height: 500px;
-  width: 90%;
+  width: 98%;
   background-color: aliceblue;
   position: fixed;
   top: 225px;
   justify-content: center;
-  left: 50px;
+  left: 20px;
   border-radius: 10px;
+}
+
+.table_heads {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: lighter;
+  background-color: rgb(200, 199, 199);
+  align-items: center;
 }
