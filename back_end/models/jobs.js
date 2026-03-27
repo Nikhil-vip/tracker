@@ -5,6 +5,11 @@ const jobSchema = new mongoose.Schema({
   role: { type: String, required: true },
   date: { type: Date, default: Date.now }, // Defaults to today if you forget to pick a date
   salary: { type: Number, required: true },
+  status: {
+    type: String,
+    enum: ['Pending', 'Interviewing', 'Rejected', 'Accepted'],
+    default: 'Pending'
+  },
 
   // CRITICAL: This links the job to the specific User who is logged in
   createdBy: {
