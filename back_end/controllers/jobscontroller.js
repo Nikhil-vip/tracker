@@ -1,24 +1,24 @@
-const job = require('../models/jobs.js')
+const Job = require('../models/jobs.js'); // Ensure this matches your filename exactly
+
 const newjob = async (req, res) => {
   try {
-    const { company, role, date, salary } = req.body;
+    const { company, role, date, salary, status } = req.body;
 
-    // CRITICAL: Pull the user ID from your auth middleware
-    // This assumes your middleware attaches the user object to 'req'
+    // Use .id to match the middleware change above
     const userId = req.user.id;
 
-    const savejob = await job.create({
+    const savejob = await Job.create({
       company,
       role,
       date,
       salary,
-      createdBy: userId // Explicitly link the job to the logged-in user
+      status,
+      createdBy: userId
     });
 
     res.status(201).json(savejob);
   } catch (error) {
-    console.log("Error:", error);
-    res.status(500).json({ message: "Error creating job" });
+    res.status(500).json({ message: "Error creating job", error: error.message });
   }
 };
 module.exports = { newjob };
