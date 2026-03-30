@@ -21,4 +21,34 @@ const newjob = async (req, res) => {
     res.status(500).json({ message: "Error creating job", error: error.message });
   }
 };
-module.exports = { newjob };
+// GET all jobs for the logged-in user
+const getJobs = async (req, res) => {
+  try {
+    // We use req.user.id which was set by your 'protect' middleware
+    const jobs = await Job.find({ createdBy: req.user.id }).sort({ createdAt: -1 });
+    res.status(200).json(jobs);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching jobs", error: error.message });
+  }
+};
+const deleteJob = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+
+    // Find job and ensure it belongs to the logged-in user
+    const job = await Job.findOneAndDelete({
+      _id: jobId,
+      createdBy: req.user.id
+    });
+
+    if (!job) {
+      return res.status(404).json({ message: "Job not found or unauthorized" });
+    }
+
+    res.status(200).json({ message: "Job deleted successfully, sir." });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting job", error: error.message });
+  }
+};
+// Export BOTH functions
+module.exports = { newjob, getJobs, deleteJob };
