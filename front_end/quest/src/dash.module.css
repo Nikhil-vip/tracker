@@ -116,3 +116,128 @@ body {
   background-color: rgb(200, 199, 199);
   align-items: center;
 }
+
+/* 1. Global Reset */
+body {
+  background-color: aliceblue;
+  margin: 0;
+  padding-top: 50px;
+  /* Space for the fixed navbar */
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* 2. Navbar - Keep Fixed but use better spacing */
+.navbar {
+  height: 50px;
+  width: 100%;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.nav_in {
+  border-radius: 5px;
+  height: 30px;
+  width: 60%;
+  /* Responsive width for search */
+}
+
+.profile {
+  height: 40px;
+  width: 40px;
+  background-color: antiquewhite;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 3. Top Header - REMOVED fixed, added flex-wrap */
+.top {
+  background-color: rgb(255, 0, 0);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Wraps on small screens */
+}
+
+.top_button {
+  background-color: rgb(26, 255, 0);
+  min-width: 80px;
+  /* Fixed width for consistency */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 4. Quick Info - Changed to Grid for stacking */
+.quick_info {
+  width: 95%;
+  margin: 15px auto;
+  background-color: aqua;
+  display: grid;
+  /* 1 column on phone, 3 on tablet/PC */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  color: aliceblue;
+  border-radius: 10px;
+}
+
+.cont_one,
+.cont_two,
+.cont_three {
+  height: 80px;
+  background-color: black;
+  border-radius: 15px;
+  width: 100%;
+  /* Auto fill grid */
+}
+
+/* 5. Main Area - REMOVED fixed height & position */
+.main {
+  width: 95%;
+  margin: 10px auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  /* Allows table scrolling on small phones */
+}
+
+.table_heads {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 500px;
+  /* Prevents text squishing */
+}
+
+/* 6. Tablet/Phone specific tweaks */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .top_button {
+    font-size: 1rem;
+    width: 30%;
+  }
+}
