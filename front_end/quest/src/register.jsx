@@ -29,8 +29,13 @@ const REGISTER = () => {
     }
 
     try {
-      console.log("Attempting to send data to backend...");
-      const response = await axios.post('http://localhost:3000/api/auth/register', {
+      // 1. Define the base URL at the top of your function
+      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+      console.log(`Attempting to send data to: ${API_BASE_URL}`);
+
+      // 2. Use the variable in your request
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username,
         email,
         password
