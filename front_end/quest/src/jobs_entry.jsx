@@ -5,6 +5,8 @@ import Styles from './jobs_entry.module.css';
 
 const Entry = () => {
   const navigate = useNavigate();
+  // 1. Define the base URL at the top of your function
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [salary, setSalary] = useState("");
@@ -17,7 +19,7 @@ const Entry = () => {
       // Retrieve the token you saved during Login/Signup
       const token = localStorage.getItem('token');
 
-      const response = await axios.post('http://localhost:3000/api/jobs/newjob',
+      const response = await axios.post(`${API_BASE_URL}/api/jobs/newjob`,
         { company, role, date, salary, status },
         { headers: { Authorization: `Bearer ${token}` } } // Send token to backend
       );
