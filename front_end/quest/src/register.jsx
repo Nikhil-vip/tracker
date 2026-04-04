@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const REGISTER = () => {
   const navigate = useNavigate();
+  // 1. Define the base URL at the top of your function
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const [email, setemail] = useState("");
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
@@ -29,8 +31,7 @@ const REGISTER = () => {
     }
 
     try {
-      // 1. Define the base URL at the top of your function
-      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 
       console.log(`Attempting to send data to: ${API_BASE_URL}`);
 

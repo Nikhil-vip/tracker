@@ -6,13 +6,14 @@ import Styles from './dash.module.css';
 const Dashboard = () => {
   const Navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/api/jobs/getall', {
+        const response = await axios.get(`${API_URL}/api/jobs/getall`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setJobs(response.data);
@@ -29,7 +30,7 @@ const Dashboard = () => {
     if (window.confirm("Are you sure you want to delete this application, sir?")) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:3000/api/jobs/delete/${id}`, {
+        await axios.delete(`${API_URL}/api/jobs/delete/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

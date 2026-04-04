@@ -8,13 +8,14 @@ import { FaDragon } from 'react-icons/fa';
 const LOGGIN = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState(''); // Changed to email to match your backend logic
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const [password, setpassword] = useState('');
 
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
       // Replace your hardcoded line with this:
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 
       const response = await axios.post(`${API_URL}/api/auth/login`, {
         email,
