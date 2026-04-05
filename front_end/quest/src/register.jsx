@@ -31,25 +31,38 @@ const REGISTER = () => {
     }
 
     try {
-
-
       console.log(`Attempting to send data to: ${API_BASE_URL}`);
 
-      // 2. Use the variable in your request
       const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username,
         email,
         password
       });
 
-      if (response.status === 201) {
-        // Save the passport (token) in the browser
-        localStorage.setItem('token', response.data.token);
+      // FIX 1: Check for ANY successful status (200-299)
+      if (response.status >= 200 && response.status < 300) {
+
+        // Save the token if provided
+        if (response.data && response.data.token) {
+          localStorage.setItem('token', response.data.token);
+        }
+
         alert("Registration successful, sir!");
+
+        // FIX 2: Use the route path, NOT the filename
+        // Change this to match whatever path you set in your App.js
         navigate("/Log_in.jsx");
+
+      } else {
+        // This catches cases where the server sends a success code 
+        // that isn't handled correctly
+        alert("Unexpected response from server.");
       }
+
     } catch (error) {
-      console.error("Backend Error:", error.response?.data);
+      // This is where your "Server Error" alert is coming from.
+      // If the backend returns a 400 or 500, it lands here.
+      console.error("Backend Error Detail:", error.response?.data);
       alert(error.response?.data?.message || "Something went wrong with the server connection.");
     }
   };
