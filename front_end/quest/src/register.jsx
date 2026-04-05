@@ -46,7 +46,7 @@ const REGISTER = () => {
         // Save the passport (token) in the browser
         localStorage.setItem('token', response.data.token);
         alert("Registration successful, sir!");
-        navigate("/log_in.jsx");
+        navigate("/Log_in.jsx");
       }
     } catch (error) {
       console.error("Backend Error:", error.response?.data);
