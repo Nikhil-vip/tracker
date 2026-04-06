@@ -41,9 +41,6 @@ const REGISTER = () => {
 
       // FIX 1: Check for ANY successful status (200-299)
       if (response.status === 201 || response.status === 200) {
-        // 1. Success! The user is in the DB.
-
-
         localStorage.setItem('token', response.data.token);
         // 2. Save the user data as a string so you can read it later
         localStorage.setItem('user', JSON.stringify(response.data.user));
