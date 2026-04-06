@@ -42,14 +42,13 @@ const REGISTER = () => {
       // FIX 1: Check for ANY successful status (200-299)
       if (response.status === 201 || response.status === 200) {
         // 1. Success! The user is in the DB.
+
+
+        localStorage.setItem('token', response.data.token);
+        // 2. Save the user data as a string so you can read it later
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         alert("Registration successful, sir!");
 
-        // 2. Save token only if it exists (don't crash if it's missing)
-        if (response.data?.token) {
-          localStorage.setItem('token', response.data.token);
-        }
-
-        // 3. Navigate to the ROUTE (Check App.jsx, usually it's just "/login")
         navigate("/Log_in.jsx");
 
       } else {
