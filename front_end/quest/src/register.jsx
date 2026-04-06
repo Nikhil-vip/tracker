@@ -40,7 +40,7 @@ const REGISTER = () => {
       });
 
       // FIX 1: Check for ANY successful status (200-299)
-      if (response.status >= 200 && response.status < 300) {
+      if (response.status == 200 || response.status == 201) {
 
         // Save the token if provided
         if (response.data && response.data.token) {
