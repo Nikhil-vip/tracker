@@ -37,7 +37,7 @@ const REGISTER = () => {
         username,
         email,
         password
-      });
+      }, { timeout: 30000 }); // 30-second timeout
 
       // FIX 1: Check for ANY successful status (200-299)
       if (response.status === 201 || response.status === 200) {
@@ -50,7 +50,7 @@ const REGISTER = () => {
         }
 
         // 3. Navigate to the ROUTE (Check App.jsx, usually it's just "/login")
-        navigate("/login");
+        navigate("/log_in.jsx");
 
       } else {
         // This catches cases where the server sends a success code 
