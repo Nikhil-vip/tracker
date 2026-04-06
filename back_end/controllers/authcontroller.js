@@ -37,7 +37,7 @@ const newuser = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ message: "Server Error", error: error.message });
+    return res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
 const loginuser = async (req, res) => {
@@ -71,7 +71,7 @@ const loginuser = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ message: "Server Error", error: error.message });
+    return res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
 
