@@ -52,7 +52,7 @@ const REGISTER = () => {
 
         // FIX 2: Use the route path, NOT the filename
         // Change this to match whatever path you set in your App.js
-        navigate("/Log_in.jsx");
+        navigate("/Log_in");
 
       } else {
         // This catches cases where the server sends a success code 
