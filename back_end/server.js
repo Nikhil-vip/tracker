@@ -8,7 +8,10 @@ const jobRoutes = require('./routes/jobroutes.js');
 const app = express();
 
 // 1. SECURITY & PARSING (Must come BEFORE routes)
-app.use(cors());
+app.use(cors({
+  origin: "https://quesstt.netlify.app", // Replace with your actual link
+  credentials: true
+}));
 app.use(express.json());
 
 // 2. ROUTES
