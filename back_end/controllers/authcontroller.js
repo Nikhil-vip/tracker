@@ -77,6 +77,3 @@ const loginuser = async (req, res) => {
 
 // Don't forget to export it!
 module.exports = { newuser, loginuser };
-//git add .
-//git commit -m "Fixing register logic and env variables sir"
-//git push origin main

@@ -5,13 +5,17 @@ const cors = require('cors');
 // Make sure this path matches your folder name (route vs routes)
 const authroutes = require('./routes/authroutes.js');
 const jobRoutes = require('./routes/jobroutes.js');
+const corsOptions = {
+  origin: 'https://quesstt.netlify.app', // Your specific Netlify URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 const app = express();
 
-// 1. SECURITY & PARSING (Must come BEFORE routes)
-app.use(cors({
-  origin: "https://quesstt.netlify.app", // Replace with your actual link
-  credentials: true
-}));
+
 app.use(express.json());
 
 // 2. ROUTES
