@@ -45,6 +45,7 @@ const REGISTER = () => {
         // Save the token if provided
         if (response.data && response.data.token) {
           localStorage.setItem('token', response.data.token);
+          console.log(response.data.message)
         }
 
         alert("Registration successful, sir!");
