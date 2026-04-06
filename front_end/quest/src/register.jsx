@@ -40,19 +40,17 @@ const REGISTER = () => {
       });
 
       // FIX 1: Check for ANY successful status (200-299)
-      if (response.status == 200 || response.status == 201) {
-
-        // Save the token if provided
-        if (response.data && response.data.token) {
-          localStorage.setItem('token', response.data.token);
-          console.log(response.data.message)
-        }
-
+      if (response.status === 201 || response.status === 200) {
+        // 1. Success! The user is in the DB.
         alert("Registration successful, sir!");
 
-        // FIX 2: Use the route path, NOT the filename
-        // Change this to match whatever path you set in your App.js
-        navigate("/Log_in");
+        // 2. Save token only if it exists (don't crash if it's missing)
+        if (response.data?.token) {
+          localStorage.setItem('token', response.data.token);
+        }
+
+        // 3. Navigate to the ROUTE (Check App.jsx, usually it's just "/login")
+        navigate("/login");
 
       } else {
         // This catches cases where the server sends a success code 
