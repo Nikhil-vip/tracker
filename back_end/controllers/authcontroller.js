@@ -26,7 +26,7 @@ const newuser = async (req, res) => {
     );
 
     // 4. Send EVERYTHING back to React
-    res.status(201).json({
+    res.status(200).json({
       message: "User registered successfully!",
       token,
       user: {
