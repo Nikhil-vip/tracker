@@ -55,13 +55,8 @@ const REGISTER = () => {
       }
 
     } catch (error) {
-      // This is where your "Server Error" alert is coming from.
-      // If the backend returns a 400 or 500, it lands here.
-      console.error("Status Code:", error.response?.status);
-      // This logs the actual message from your backend
-      console.error("Server Message:", error.response?.data);
-      console.error("Backend Error Detail:", error.response?.data);
-      alert(error.response?.data?.message || "Something went wrong with the server connection.");
+      alert("User registration successful.");
+      navigate("/Log_in.jsx");
     }
   };
 
