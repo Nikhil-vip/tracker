@@ -74,13 +74,13 @@ const REGISTER = () => {
         {/* Wrapping in a form is the most reliable way to trigger handlesubmit */}
         <form onSubmit={handlesubmit}>
           <label htmlFor="Email">Email:</label><br />
-          <input type="email" id="Email" name="Email" value={email} onChange={(event) => setemail(event.target.value)} /><br />
+          <input type="email" className={Styles.input} name="Email" value={email} onChange={(event) => setemail(event.target.value)} /><br />
 
           <label htmlFor="username">Username:</label><br />
-          <input type="text" id="username" name="username" value={username} onChange={(event) => setusername(event.target.value)} /><br />
+          <input type="text" className={Styles.input} id="username" name="username" value={username} onChange={(event) => setusername(event.target.value)} /><br />
 
           <label htmlFor="password">Password:</label><br />
-          <input type="password" id="password" name="password" value={password} onChange={(event) => setpassword(event.target.value)} /><br />
+          <input type="password" className={Styles.input} id="password" name="password" value={password} onChange={(event) => setpassword(event.target.value)} /><br />
 
           <button type="submit" className={Styles.button}>Register</button>
         </form>

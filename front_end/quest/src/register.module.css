@@ -42,19 +42,23 @@ label {
   font-family: 'Times New Roman', Times, serif;
 }
 
-input {
+.input {
   width: 80%;
   z-index: 1;
   border-radius: 20px;
-
+  width: 110%;
 }
 
 
-button {
+.button {
   border: none;
   font-size: 1.5rem;
   color: black;
-  width: 70%;
+  width: 50%;
+  background: linear-gradient(rgb(0, 255, 55), rgb(182, 182, 183));
+  position: absolute;
+  top: 450px;
+  left: 110px;
 }
 
 .button {
