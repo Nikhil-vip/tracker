@@ -104,7 +104,7 @@ body {
   position: fixed;
   top: 225px;
   justify-content: center;
-  left: 20px;
+  left: 50px;
   border-radius: 10px;
 }
 
@@ -115,6 +115,41 @@ body {
   font-weight: lighter;
   background-color: rgb(200, 199, 199);
   align-items: center;
+}
+
+.table_cell1 {
+  color: blue;
+  font-size: 2rem;
+  padding: 0px 20px;
+}
+
+.table_cell2 {
+  color: blue;
+  font-size: 2rem;
+  padding: 0px 40px;
+}
+
+.table_cell3 {
+  color: blue;
+  font-size: 2rem;
+  padding: 0px 50px;
+}
+
+.table_cell4 {
+  color: blue;
+  font-size: 2rem;
+  padding: 0px 50px;
+}
+
+.table_cell5 {
+  color: blue;
+  font-size: 2rem;
+  padding: 0px 120px;
+}
+
+.table_cell6 {
+  color: blue;
+  font-size: 2rem;
 }
 
 /* 1. Global Reset */

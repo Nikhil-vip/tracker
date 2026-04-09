@@ -87,22 +87,25 @@ const Dashboard = () => {
           <h4>Status</h4>
           <h4>Salary</h4>
           <h4>Date Applied</h4>
+          <h4>Actions</h4>
         </div>
         <table className={Styles.table}>
           <tbody>
             {jobs.map((job) => (
               <tr key={job._id}>
-                <td>{job.company}</td>
-                <td>{job.role}</td>
-                <td>{job.status}</td>
-                <td>{job.salary}</td>
-                <td>{new Date(job.date).toLocaleDateString()}</td>
-                <button
-                  className={Styles.delete_btn}
-                  onClick={() => handleDelete(job._id)}
-                >
-                  Delete
-                </button>
+                <td className={Styles.table_cell1}>{job.company}</td>
+                <td className={Styles.table_cell2}>{job.role}</td>
+                <td className={Styles.table_cell3}>{job.status}</td>
+                <td className={Styles.table_cell4}>{job.salary}</td>
+                <td className={Styles.table_cell5}>{new Date(job.date).toLocaleDateString()}</td>
+                <td className={Styles.table_cell6}>
+                  <button
+                    className={Styles.delete_btn}
+                    onClick={() => handleDelete(job._id)}
+                  >
+                    Delete{job.nothing}
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

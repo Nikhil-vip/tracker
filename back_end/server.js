@@ -6,7 +6,8 @@ const cors = require('cors');
 const authroutes = require('./routes/authroutes.js');
 const jobRoutes = require('./routes/jobroutes.js');
 const corsOptions = {
-  origin: 'https://quesstt.netlify.app', // Your specific Netlify URL
+  //origin: 'https://quesstt.netlify.app', // Your specific Netlify URL
+  origin: 'http://localhost:3000', // Your local development URL only - remove this in production
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   optionsSuccessStatus: 200
