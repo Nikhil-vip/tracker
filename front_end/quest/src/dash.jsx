@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Styles from './dash.module.css';
-
+import HamburgerMenu from './dash_manu.jsx';
 const Dashboard = () => {
   const Navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -42,18 +42,29 @@ const Dashboard = () => {
       }
     }
   };
+  const handlesignout = () => {
+    if (window.confirm("Are you sure you want to sign out, sir?")) {
+      Navigate("/Log_in.jsx");
+    }
+  };
   return (
     <>
       <div className={Styles.navbar}>
-        <input className={Styles.nav_in}></input>
+        <h1>Quest</h1>
 
-        <div className={Styles.profile}>
-          hi
+        <div className={Styles.profile_area}>
+          <HamburgerMenu></HamburgerMenu>
+          <div className={Styles.profile}>
+            <div>hi</div>
+          </div>
+
+
+
         </div>
 
       </div>
 
-      <div className={Styles.top}>
+      <div className={Styles.topp}>
 
         <h1>Dashboard</h1>
 
@@ -64,15 +75,18 @@ const Dashboard = () => {
       <div className={Styles.quick_info}>
 
         <div className={Styles.cont_one}>
-          jobs applied: {jobs.length}
+          <div>jobs applied:</div>
+          <div>{jobs.length}</div>
         </div>
 
         <div className={Styles.cont_two}>
-          average salary: {jobs.reduce((acc, job) => acc + job.salary, 0) / jobs.length || 0}
+          <div>average salary:</div>
+          <div>{jobs.reduce((acc, job) => acc + job.salary, 0) / jobs.length || 0}</div>
         </div>
 
         <div className={Styles.cont_three}>
-          applications this month: {jobs.filter(job => new Date(job.date).getMonth() === new Date().getMonth()).length}
+          <div>applications this month:</div>
+          <div>{jobs.filter(job => new Date(job.date).getMonth() === new Date().getMonth()).length}</div>
         </div>
 
       </div>
@@ -81,31 +95,35 @@ const Dashboard = () => {
         <div>
           <h3>Job Applications</h3>
         </div>
-        <div className={Styles.table_heads} >
-          <h4>Company</h4>
-          <h4>Role</h4>
-          <h4>Status</h4>
-          <h4>Salary</h4>
-          <h4>Date Applied</h4>
-          <h4>Actions</h4>
-        </div>
-        <table className={Styles.table}>
+
+        <table className={Styles.table_container}>
+          <thead>
+            <tr className={Styles.table_heads}>
+              <th>Company</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Salary</th>
+              <th>Date Applied</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
           <tbody>
             {jobs.map((job) => (
-              <tr key={job._id}>
+              <tr key={job._id} className={Styles.table}>
                 <td className={Styles.table_cell1}>{job.company}</td>
                 <td className={Styles.table_cell2}>{job.role}</td>
                 <td className={Styles.table_cell3}>{job.status}</td>
-                <td className={Styles.table_cell4}>{job.salary}</td>
+                <td className={Styles.table_cell4}>₹{job.salary}</td>
                 <td className={Styles.table_cell5}>{new Date(job.date).toLocaleDateString()}</td>
-                <td className={Styles.table_cell6}>
+                <td className={Styles.table_cell_actions}>
                   <button
                     className={Styles.delete_btn}
                     onClick={() => handleDelete(job._id)}
                   >
-                    Delete{job.nothing}
+                    Delete
                   </button>
                 </td>
+
               </tr>
             ))}
           </tbody>

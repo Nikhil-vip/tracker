@@ -65,8 +65,8 @@ label {
   border-radius: 20px;
 }
 
-button:hover {
-  background: linear-gradient(rgb(0, 208, 255), rgb(183, 182, 182));
+.button:hover {
+  background: linear-gradient(rgb(0, 208, 255), rgb(135, 17, 17));
 
 }
 
