@@ -49,44 +49,40 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div className={Styles.navbar}>
+      <HamburgerMenu></HamburgerMenu>
+      <div className={Styles.navbb} >
         <h1>Quest</h1>
 
         <div className={Styles.profile_area}>
-          <HamburgerMenu></HamburgerMenu>
-          <div className={Styles.profile}>
-            <div>hi</div>
-          </div>
-
 
 
         </div>
 
-      </div>
+      </div >
 
       <div className={Styles.topp}>
 
         <h1>Dashboard</h1>
 
-        <button className={Styles.top_button} onClick={() => Navigate("/jobs_entry.jsx")}>+ New</button>
+        <button className={Styles.top_buttton} onClick={() => Navigate("/jobs_entry.jsx")}>+ New</button>
 
       </div>
 
-      <div className={Styles.quick_info}>
+      <div className={Styles.quick_infoo}>
 
-        <div className={Styles.cont_one}>
+        <div className={Styles.cont_onee}>
           <div>jobs applied:</div>
-          <div>{jobs.length}</div>
+          <div style={{ color: "green" }}>{jobs.length}</div>
         </div>
 
-        <div className={Styles.cont_two}>
+        <div className={Styles.cont_twoo}>
           <div>average salary:</div>
-          <div>{jobs.reduce((acc, job) => acc + job.salary, 0) / jobs.length || 0}</div>
+          <div style={{ color: "green" }}>{jobs.reduce((acc, job) => acc + job.salary, 0) / jobs.length || 0}</div>
         </div>
 
-        <div className={Styles.cont_three}>
+        <div className={Styles.cont_threee}>
           <div>applications this month:</div>
-          <div>{jobs.filter(job => new Date(job.date).getMonth() === new Date().getMonth()).length}</div>
+          <div style={{ color: "green" }}>{jobs.filter(job => new Date(job.date).getMonth() === new Date().getMonth()).length}</div>
         </div>
 
       </div>

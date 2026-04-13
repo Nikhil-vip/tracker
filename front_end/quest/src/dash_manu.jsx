@@ -14,7 +14,7 @@ const HamburgerMenu = ({ user }) => {
   const handlesignout = () => {
     if (window.confirm("Are you sure you want to sign out, sir?")) {
       localStorage.clear(); // Good practice to clear session
-      navigate("/Log_in"); // Usually you navigate to a route, not a filename
+      navigate("/Log_in.jsx"); // Usually you navigate to a route, not a filename
     }
   };
 
@@ -26,13 +26,13 @@ const HamburgerMenu = ({ user }) => {
         <div className={`${Styles.bar} ${isOpen ? Styles.barOpen3 : ''}`}></div>
       </button>
 
-      <div className={`${Styles.sidebar} ${isOpen ? Styles.sidebarActive : ''}`}>
+      <div className={`${Styles.sidebar} ${isOpen ? Styles.sidebarActive : ''}`} style={{ zIndex: "1000" }}>
         <nav>
           <ul className={Styles.menuList}>
             <li onClick={toggleMenu}>
               <div className={Styles.name}>{user?.username || 'Sir'}</div>
             </li>
-            <li onClick={toggleMenu}>Profile</li>
+            <li className={Styles.email}>{user.email}</li>
             <li className={Styles.Signout} onClick={handlesignout}>
               <FaSignOutAlt /> Sign Out
             </li>
@@ -72,12 +72,11 @@ const Dashboardd = () => {
   }, [API_URL]);
 
   return (
-    <div className={Styles.dashboardContainer}>
+    <div className={Styles.dashboardContainerr}>
       {/* Injecting the Sidebar here */}
       <HamburgerMenu user={user} />
 
       <main style={{ padding: '20px' }}>
-        <h1>Dashboard</h1>
         {loading ? (
           <p>Loading jobs...</p>
         ) : (

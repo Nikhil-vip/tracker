@@ -1,4 +1,8 @@
 /* Sidebar Container */
+.dashboardContainerr {
+  z-index: 100;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -11,18 +15,20 @@
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   padding-top: 80px;
+  z-index: 100;
 }
 
 /* Active state: Slide in */
 .sidebarActive {
   transform: translateX(0);
+  z-index: 100;
 }
 
 /* Hamburger Button Styling */
 .hamburgerBtn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  right: 20px;
   z-index: 101;
   background: none;
   border: none;
@@ -30,6 +36,22 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  z-index: 100;
+}
+
+.name,
+.Signout,
+.email {
+  color: white;
+  font-size: 18px;
+  margin: 20px;
+  z-index: 100;
+}
+
+.Signout:hover {
+  color: #ddd;
+  cursor: pointer;
+  z-index: 100;
 }
 
 .bar {
@@ -37,6 +59,7 @@
   height: 3px;
   background-color: #333;
   transition: 0.3s;
+  z-index: 100;
 }
 
 /* Hamburger to 'X' Animations */
@@ -56,6 +79,7 @@
 .menuList {
   list-style: none;
   padding: 0;
+  z-index: 100;
 }
 
 .menuList li a {
@@ -64,6 +88,7 @@
   color: white;
   text-decoration: none;
   border-bottom: 1px solid #333;
+  z-index: 100;
 }
 
 /* Background Dimming */

@@ -2,13 +2,16 @@ body {
   background-color: aliceblue;
 }
 
-.navbar {
-  height: 100%;
+.navbb {
   width: 100%;
-  background-color: blue;
+  background-color: rgb(78, 199, 199);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .nav_in {
@@ -16,17 +19,6 @@ body {
   height: 100%;
 }
 
-.Signout {
-  height: 30px;
-  width: 30px;
-  background-color: transparent;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transform: scale(2);
-}
 
 .profile {
   height: 50px;
@@ -50,7 +42,7 @@ body {
 
 .topp {
   width: 100%;
-  background-color: rgb(248, 7, 7);
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,29 +50,32 @@ body {
   position: fixed;
   top: 50px;
   left: 0;
+  z-index: 1;
 }
 
-.top_button {
+.top_buttton {
   position: relative;
   right: 10px;
-  background-color: rgb(26, 255, 0);
+  background-color: rgb(78, 199, 199);
   width: 10%;
   height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding-left: 10px;
   font-size: 1.5rem;
   border-radius: 10px 10px 10px 10px;
 }
 
-.top_button:hover {
+.top_buttton:hover {
   background-color: rgb(0, 255, 8);
 }
 
-.quick_info {
-  width: 100%;
-  background-color: aqua;
+.quick_infoo {
+  height: 100px;
+  width: 95%;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -88,44 +83,52 @@ body {
   color: aliceblue;
   border-radius: 10px;
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 40px;
 }
 
-.cont_one {
-  height: 70px;
-  width: 150px;
-  background-color: black;
+.cont_onee {
+  height: 90px;
+  width: 20%;
+  margin-left: 10%;
+  background-color: rgb(78, 199, 199);
   border-radius: 20px 20px 20px 20px;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
 }
 
-.cont_two {
-  height: 70px;
-  width: 150px;
-  background-color: black;
+.cont_twoo {
+  height: 90px;
+  width: 20%;
+  background-color: rgb(78, 199, 199);
   border-radius: 20px 20px 20px 20px;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
 }
 
-.cont_three {
-  height: 70px;
-  width: 150px;
-  background-color: black;
+.cont_threee {
+  height: 90px;
+  width: 20%;
+  margin-right: 10%;
+  background-color: rgb(78, 199, 199);
   border-radius: 20px 20px 20px 20px;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
 }
 
 .main {

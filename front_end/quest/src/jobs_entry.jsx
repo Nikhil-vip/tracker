@@ -39,6 +39,7 @@ const Entry = () => {
       <h1>Enter Job Details</h1>
 
       <input
+        className={Styles.input}
         type="text"
         placeholder="Company Name"
         value={company}
@@ -46,6 +47,7 @@ const Entry = () => {
       />
 
       <input
+        className={Styles.input}
         type="text"
         placeholder="Role"
         value={role}
@@ -53,12 +55,14 @@ const Entry = () => {
       />
 
       <input
+        className={Styles.input}
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
       />
 
       <input
+        className={Styles.input}
         type="number"
         placeholder="Salary"
         value={salary}
@@ -77,7 +81,9 @@ const Entry = () => {
         <option value="Accepted">Accepted</option>
       </select>
 
-      <button onClick={handleSubmit}>Add Job</button>
+      <button onClick={handleSubmit} className={Styles.button}>
+        Add Job
+      </button>
     </div>
   );
 };
