@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Styles from './dash.module.css';
 import HamburgerMenu from './dash_manu.jsx';
+import { FaDragon } from 'react-icons/fa';
 const Dashboard = () => {
   const Navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -52,7 +53,7 @@ const Dashboard = () => {
       <HamburgerMenu></HamburgerMenu>
       <div className={Styles.navbb} >
         <h1>Quest</h1>
-
+        <div className={Styles.grag}><FaDragon id="dragon" /></div>
         <div className={Styles.profile_area}>
 
 

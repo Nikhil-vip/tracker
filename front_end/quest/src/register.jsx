@@ -55,7 +55,8 @@ const REGISTER = () => {
       }
 
     } catch (error) {
-      alert("User registration successful.");
+      alert("User registration failed.");
+      console.error("Registration error:", error);
       navigate("/Log_in.jsx");
     }
   };

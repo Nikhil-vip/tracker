@@ -28,6 +28,16 @@ body {
   align-items: center;
 }
 
+.grag {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  position: fixed;
+  left: 120px;
+  top: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
 .profile_area {
   width: 100px;
   display: flex;
