@@ -11,7 +11,7 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',      // Local React (CRA)
   'http://localhost:5173',      // Local React (Vite)
-  'https://quesstt.netlify.app' // Your Netlify Production URL
+  'https://questting.netlify.app' // Your Netlify Production URL
 ];
 
 const corsOptions = {
