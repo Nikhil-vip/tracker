@@ -224,353 +224,181 @@ body {
   cursor: pointer;
 }
 
-/* 1. Global Reset */
-body {
-  background-color: aliceblue;
-  margin: 0;
-  padding-top: 50px;
-  /* Space for the fixed navbar */
-  font-family: sans-serif;
-  overflow-x: hidden;
+.delete_btn:hover {
+  background-color: darkred;
 }
 
-/* 2. Navbar - Keep Fixed but use better spacing */
-.navbar {
-  height: 50px;
-  width: 100%;
-  background-color: blue;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-.nav_in {
-  border-radius: 5px;
-  height: 30px;
-  width: 60%;
-  /* Responsive width for search */
-}
-
-.profile {
-  height: 40px;
-  width: 40px;
-  background-color: antiquewhite;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* 3. Top Header - REMOVED fixed, added flex-wrap */
-.top {
-  background-color: rgb(255, 0, 0);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  /* Wraps on small screens */
-}
-
-.top_button {
-  background-color: rgb(26, 255, 0);
-  min-width: 80px;
-  /* Fixed width for consistency */
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-/* 4. Quick Info - Changed to Grid for stacking */
-.quick_info {
-  width: 95%;
-  margin: 15px auto;
-  background-color: aqua;
-  display: grid;
-  /* 1 column on phone, 3 on tablet/PC */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 15px;
-  color: aliceblue;
-  border-radius: 10px;
-}
-
-.cont_one,
-.cont_two,
-.cont_three {
-  height: 80px;
-  background-color: black;
-  border-radius: 15px;
-  width: 100%;
-  /* Auto fill grid */
-}
-
-/* 5. Main Area - REMOVED fixed height & position */
-.main {
-  width: 95%;
-  margin: 10px auto;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-  /* Allows table scrolling on small phones */
-}
-
-.table_heads {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
-  min-width: 500px;
-  /* Prevents text squishing */
-}
-
-/* 6. Tablet/Phone specific tweaks */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .top_button {
-    font-size: 1rem;
-    width: 30%;
-  }
-}
-
-/* ========== TABLET (max-width: 768px) ========== */
 @media (max-width: 768px) {
+
+  /* 1. Reset Body and Layout */
   body {
-    padding-top: 50px;
-  }
-
-  .grag {
-    font-size: 1.4rem;
-    position: static;
-  }
-
-  .nav_in {
-    width: 50%;
-  }
-
-  .profile_area {
-    width: 80px;
-  }
-
-  .quick_infoo,
-  .quick_info {
-    grid-template-columns: repeat(2, 1fr);
-    width: 95%;
-    margin: 12px auto;
-    gap: 10px;
-    padding: 12px;
-  }
-
-  .cont_onee,
-  .cont_twoo,
-  .cont_threee,
-  .cont_one,
-  .cont_two,
-  .cont_three {
-    height: 75px;
-    font-size: 1rem;
-    border-radius: 14px;
-  }
-
-  .top_buttton,
-  .top_button {
-    font-size: 1rem;
-    min-width: 70px;
-    height: 36px;
-  }
-
-  .main {
-    width: 95%;
-    padding: 12px;
-  }
-
-  .table_cell1 {
-    padding: 0 10px;
-  }
-
-  .table_cell2 {
-    padding: 0 20px;
-  }
-
-  .table_cell3 {
-    padding: 0 20px;
-  }
-
-  .table_cell4 {
-    padding: 0 20px;
-  }
-
-  .table_cell5 {
-    padding: 0 40px;
-  }
-}
-
-/* ========== MOBILE (max-width: 480px) ========== */
-@media (max-width: 480px) {
-  body {
-    padding-top: 50px;
+    padding-top: 130px;
+    /* Adjust for fixed headers */
   }
 
   .navbb,
-  .navbar {
-    height: 50px;
-    padding: 0 10px;
+  .topp {
+    position: fixed;
+    width: 100%;
+    left: 0;
   }
 
   .grag {
-    font-size: 1.1rem;
+    position: static;
+    /* Remove the fixed left: 120px */
+    font-size: 1.3rem;
+    margin-left: 15px;
   }
 
-  .nav_in {
-    width: 45%;
-    height: 28px;
-    font-size: 0.85rem;
-  }
-
-  .profile {
-    height: 34px;
-    width: 34px;
-  }
-
-  .profile_area {
-    width: 65px;
-  }
-
-  .topp,
-  .top {
+  /* 2. Fix the Quick Info Cards */
+  .quick_infoo {
+    position: static;
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    padding: 8px 12px;
-    gap: 6px;
-  }
-
-  .top_buttton,
-  .top_button {
-    font-size: 0.85rem;
-    min-width: 60px;
-    height: 32px;
-    padding: 0 8px;
-    border-radius: 8px;
-  }
-
-  .quick_infoo,
-  .quick_info {
-    grid-template-columns: 1fr;
-    width: 92%;
+    width: 90%;
+    height: auto;
     margin: 10px auto;
-    gap: 8px;
-    padding: 10px;
+    gap: 10px;
+    position: fixed;
+    top: 130px;
+    left: 5%;
+    width: 90%;
   }
 
   .cont_onee,
   .cont_twoo,
-  .cont_threee,
-  .cont_one,
-  .cont_two,
-  .cont_three {
-    height: 65px;
-    font-size: 0.95rem;
-    border-radius: 12px;
+  .cont_threee {
+    width: 100% !important;
+    margin: 0 !important;
+    height: 60px;
+    font-size: 1rem;
   }
 
+  /* 3. TRANSFORM TABLE TO CARDS */
   .main {
-    width: 92%;
+    position: static;
+    width: 90%;
+    margin: 20px auto;
     padding: 10px;
-    margin: 10px auto;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* Hide the original header row entirely on mobile */
+  .table_heads {
+    display: none;
   }
 
   .table_container {
-    min-width: 420px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    /* --- Scroll Logic --- */
+    /* This calculates the height: 100% of the screen minus the height of elements above it */
+    max-height: calc(100vh - 250px);
+
+    /* Enables vertical scrolling */
+    overflow-y: auto;
+
+    /* Hides horizontal scroll so the page doesn't wobble */
+    overflow-x: hidden;
+
+    /* Makes scrolling smooth on mobile */
+    -webkit-overflow-scrolling: touch;
+
+    /* Optional: adds a little padding so content doesn't touch the scrollbar */
+    padding-right: 5px;
   }
 
-  .table_heads {
-    padding: 8px 6px;
-    font-size: 0.8rem;
+  /* Custom Scrollbar to match your theme */
+  .table_container::-webkit-scrollbar {
+    width: 6px;
   }
 
-  .table_cell1 {
-    padding: 0 6px;
-    font-size: 0.8rem;
+  .table_container::-webkit-scrollbar-thumb {
+    background-color: rgb(78, 199, 199);
+    border-radius: 10px;
   }
 
-  .table_cell2 {
-    padding: 0 8px;
-    font-size: 0.8rem;
+  .table_container::-webkit-scrollbar-track {
+    background: transparent;
   }
 
-  .table_cell3 {
-    padding: 0 8px;
-    font-size: 0.8rem;
+  /* Each "Row" becomes a Card */
+  .table {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    margin-bottom: 10px;
+    /* Align text to left */
   }
 
-  .table_cell4 {
-    padding: 0 8px;
-    font-size: 0.8rem;
-  }
-
+  /* Style the individual cells to look like labeled data */
+  .table_cell1,
+  .table_cell2,
+  .table_cell3,
+  .table_cell4,
   .table_cell5 {
-    padding: 0 14px;
-    font-size: 0.8rem;
+    padding: 5px 0;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
   }
 
-  .table_cell6 {
-    font-size: 0.8rem;
+  /* Optional: Add labels before data so you know what is what */
+  .table_cell1::before {
+    content: "ID: ";
+    font-weight: bold;
+    color: #555;
+  }
+
+  .table_cell2::before {
+    content: "Name: ";
+    font-weight: bold;
+    color: #555;
+  }
+
+  .table_cell3::before {
+    content: "Date: ";
+    font-weight: bold;
+    color: #555;
+  }
+
+  .table_cell4::before {
+    content: "Status: ";
+    font-weight: bold;
+    color: #555;
+  }
+
+  .table_cell5::before {
+    content: "Amount: ";
+    font-weight: bold;
+    color: #555;
+  }
+
+  /* 4. Adjust Buttons for Touch */
+  .top_buttton {
+    width: 45%;
+    /* Two buttons can fit side by side or one large one */
+    font-size: 1rem;
+    height: 45px;
+    border-radius: 8px;
+    right: 10px;
   }
 
   .delete_btn {
-    width: 60px;
-    font-size: 0.75rem;
-  }
-
-  h1 {
-    font-size: 1.3rem;
-  }
-}
-
-/* ========== SMALL MOBILE (max-width: 360px) ========== */
-@media (max-width: 360px) {
-  .grag {
-    font-size: 0.95rem;
-  }
-
-  .nav_in {
-    width: 40%;
-  }
-
-  .top_buttton,
-  .top_button {
-    font-size: 0.75rem;
-    min-width: 50px;
-    height: 28px;
-  }
-
-  .cont_onee,
-  .cont_twoo,
-  .cont_threee,
-  .cont_one,
-  .cont_two,
-  .cont_three {
-    height: 58px;
-    font-size: 0.85rem;
-  }
-
-  .table_container {
-    min-width: 360px;
+    width: 100%;
+    /* Full width button at the bottom of the card */
+    height: 40px;
+    margin-top: 10px;
+    font-size: 1rem;
   }
 }
