@@ -355,31 +355,31 @@ body {
 
   /* Optional: Add labels before data so you know what is what */
   .table_cell1::before {
-    content: "ID: ";
+    content: "Company: ";
     font-weight: bold;
     color: #555;
   }
 
   .table_cell2::before {
-    content: "Name: ";
+    content: "Role: ";
     font-weight: bold;
     color: #555;
   }
 
   .table_cell3::before {
-    content: "Date: ";
-    font-weight: bold;
-    color: #555;
-  }
-
-  .table_cell4::before {
     content: "Status: ";
     font-weight: bold;
     color: #555;
   }
 
+  .table_cell4::before {
+    content: "Salary: ";
+    font-weight: bold;
+    color: #555;
+  }
+
   .table_cell5::before {
-    content: "Amount: ";
+    content: "Date: ";
     font-weight: bold;
     color: #555;
   }
