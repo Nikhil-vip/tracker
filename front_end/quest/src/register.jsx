@@ -4,7 +4,7 @@ import { FaScroll } from 'react-icons/fa';
 import sword from './assets/sword.svg';
 import { useState } from 'react';
 import axios from 'axios';
-
+import toast from 'react-hot-toast';
 const REGISTER = () => {
   const navigate = useNavigate();
   // 1. Define the base URL at the top of your function
@@ -13,10 +13,10 @@ const REGISTER = () => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
 
-  const handlesubmit = async (event) => {
-    event.preventDefault(); // Stop page reload immediately
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    // Validation logic
+    // Validation FIRST
     if (email === "" || username === "" || password === "") {
       alert("Please fill all the fields");
       return;
@@ -30,32 +30,32 @@ const REGISTER = () => {
       return;
     }
 
+    // Pass the actual axios call to toast.promise()
+    const myPromise = axios.post(`${API_BASE_URL}/api/auth/register`, {
+      username,
+      email,
+      password
+    }, { timeout: 30000 });
+
+    toast.promise(myPromise, {
+      loading: 'Processing... please wait sir.',
+      success: 'Task completed successfully!',
+      error: 'Something went wrong.',
+    });
+
     try {
-      console.log(`Attempting to send data to: ${API_BASE_URL}`);
+      const response = await myPromise;
 
-      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
-        username,
-        email,
-        password
-      }, { timeout: 30000 }); // 30-second timeout
-
-      // FIX 1: Check for ANY successful status (200-299)
       if (response.status === 201 || response.status === 200) {
         localStorage.setItem('token', response.data.token);
-        // 2. Save the user data as a string so you can read it later
         localStorage.setItem('user', JSON.stringify(response.data.user));
         alert("Registration successful, sir!");
-
         navigate("/Log_in.jsx");
-
       } else {
-        // This catches cases where the server sends a success code 
-        // that isn't handled correctly
         alert("Unexpected response from server.");
       }
 
     } catch (error) {
-      alert("User registration failed.");
       console.error("Registration error:", error);
       navigate("/Log_in.jsx");
     }
@@ -63,6 +63,7 @@ const REGISTER = () => {
 
   return (
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <div className={Styles.ok}>
         <div className={Styles.scroll}>
           <FaScroll id="scroll" />
