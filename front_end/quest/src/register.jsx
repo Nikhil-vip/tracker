@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Styles from './register.module.css';
-import { FaScroll } from 'react-icons/fa';
+import { FaScroll, FaUser, FaEnvelope, FaLock, FaExclamationCircle } from 'react-icons/fa';
 import sword from './assets/sword.svg';
 import { useState } from 'react';
 import axios from 'axios';
@@ -29,14 +29,12 @@ const REGISTER = () => {
       return;
     }
 
-    // ✅ CHANGE 1: store the promise before awaiting it
     const myPromise = axios.post(`${API_BASE_URL}/api/auth/register`, {
       username,
       email,
       password
     }, { timeout: 30000 });
 
-    // ✅ CHANGE 2: pass that promise to toast
     toast.promise(myPromise, {
       loading: 'Processing... please wait sir.',
       success: 'Task completed successfully!',
@@ -46,7 +44,6 @@ const REGISTER = () => {
     try {
       console.log(`Attempting to send data to: ${API_BASE_URL}`);
 
-      // ✅ CHANGE 3: await the same promise
       const response = await myPromise;
 
       if (response.status === 201 || response.status === 200) {
@@ -66,37 +63,106 @@ const REGISTER = () => {
   };
 
   return (
-    <>
+    <div className={Styles.pageWrapper}>
       <div className={Styles.ok}>
-        <div className={Styles.scroll}>
-          <FaScroll id="scroll" />
-        </div>
-        <h1 className={Styles.h1}>QUES
-          <img src={sword} alt="T" className={Styles.sword} />
-        </h1>
-        <h3 className={Styles.h3}>Create New Account</h3>
+        {/* Subtle top decorative border accent */}
+        <div className={Styles.topGlowDecor}></div>
 
-        {/* ✅ CHANGE 4: add <Toaster /> so toasts actually render */}
         <Toaster />
 
-        <form onSubmit={handlesubmit}>
-          <label htmlFor="Email">Email:</label><br />
-          <input type="email" className={Styles.input} name="Email" value={email} onChange={(event) => setemail(event.target.value)} /><br />
+        {/* Header Branding Section */}
+        <div className={Styles.headerSection}>
+          <div className={Styles.logoContainer}>
+            <span className={Styles.scrollWrapper}>
+              <FaScroll className={Styles.scroll} />
+            </span>
+            <h1 className={Styles.h1}>
+              QUES<img src={sword} alt="T" className={Styles.sword} />
+            </h1>
+          </div>
+          <h3 className={Styles.h3}>Begin Your Journey</h3>
+          <p className={Styles.subtitle}>Join thousands of explorers tracking their career quests!</p>
+        </div>
 
-          <label htmlFor="username">Username:</label><br />
-          <input type="text" className={Styles.input} id="username" name="username" value={username} onChange={(event) => setusername(event.target.value)} /><br />
+        {/* Form Container */}
+        <form onSubmit={handlesubmit} className={Styles.form}>
 
-          <label htmlFor="password">Password:</label><br />
-          <input type="password" className={Styles.input} id="password" name="password" value={password} onChange={(event) => setpassword(event.target.value)} /><br />
+          {/* Email Field */}
+          <div className={Styles.inputGroup}>
+            <label htmlFor="Email" className={Styles.label}>Comms Link (Email)</label>
+            <div className={Styles.inputWrapper}>
+              <FaEnvelope className={Styles.inputIcon} />
+              <input
+                type="email"
+                className={Styles.input}
+                name="Email"
+                placeholder="your.email@domain.com"
+                value={email}
+                onChange={(event) => setemail(event.target.value)}
+              />
+            </div>
+          </div>
 
-          <button type="submit" className={Styles.button}>Register</button>
+          {/* Username Field */}
+          <div className={Styles.inputGroup}>
+            <label htmlFor="username" className={Styles.label}>Explorer Name</label>
+            <div className={Styles.inputWrapper}>
+              <FaUser className={Styles.inputIcon} />
+              <input
+                type="text"
+                className={Styles.input}
+                id="username"
+                name="username"
+                placeholder="Your full name"
+                value={username}
+                onChange={(event) => setusername(event.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Password Field */}
+          <div className={Styles.inputGroup}>
+            <label htmlFor="password" className={Styles.label}>Access Key (Password)</label>
+            <div className={Styles.inputWrapper}>
+              <FaLock className={Styles.inputIcon} />
+              <input
+                type="password"
+                className={Styles.input}
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(event) => setpassword(event.target.value)}
+              />
+            </div>
+            {/* Visual Password Strength Bars Mock */}
+            <div className={Styles.strengthIndicator}>
+              <div className={`${Styles.strengthBar} ${Styles.activeBar}`}></div>
+              <div className={`${Styles.strengthBar} ${Styles.activeBar}`}></div>
+              <div className={`${Styles.strengthBar} ${Styles.activeBar}`}></div>
+              <div className={Styles.strengthBar}></div>
+              <span className={Styles.strengthText}>Strong</span>
+            </div>
+          </div>
+
+          {/* Custom Resource Performance Disclaimer Box */}
+          <div className={Styles.disclaimerBox}>
+            <FaExclamationCircle className={Styles.disclaimerIcon} />
+            <p className={Styles.disclaimerText}>
+              <strong>Note:</strong> We use an independent development stack and free server instances. Initial profile creation or handshake responses might take slightly longer than typical corporate setups. Thank you for your patience, Explorer!
+            </p>
+          </div>
+
+          {/* Action Button */}
+          <button type="submit" className={Styles.button}>Begin Quest</button>
         </form>
 
-        <h5 className={Styles.h5} onClick={() => navigate("/log_in.jsx")} style={{ cursor: 'pointer' }}>
-          Already have an account?
+        {/* Footer Link */}
+        <h5 className={Styles.h5} onClick={() => navigate("/log_in.jsx")}>
+          Already an explorer? <span className={Styles.loginHighlight}>Load Progress (Login)</span>
         </h5>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,112 +1,258 @@
-body {
+/* Full viewport background container to properly handle centering and sizing */
+.pageWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #0b0f19;
+  background-image: radial-gradient(circle at top right, rgba(30, 41, 59, 0.5), transparent),
+    radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.8), transparent);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 20px;
+}
 
+/* Main Auth Card Layout matches watermarked_img_16728435375637536907.png */
+.ok {
+  width: 100%;
+  max-width: 440px;
+  background-color: #161b26;
+  border: 1px solid #242b3d;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Sleek cyber border glow top accent effect */
+.topGlowDecor {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, #6366f1, transparent);
+}
+
+/* Header Arrangement */
+.headerSection {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.scrollWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e2633;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #2e374a;
 }
 
 .scroll {
-  color: rgb(99, 39, 4);
-  transform: scale(2.8);
-  position: relative;
-  top: 20px;
-}
-
-.sword {
-  position: relative;
-  right: 5px;
-  top: -5px;
-  transform: scale(0.5);
-}
-
-.ok {
-  height: 500px;
-  width: 400px;
-  border: 2px solid black;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  justify-content: center;
-  height: 95vh;
-  background: linear-gradient(rgb(0, 162, 255), rgb(183, 182, 182));
-  /* Animate the hue rotation instead of the gradient itself */
-  animation: rgb-shift 20s linear infinite;
-}
-
-label {
-  font-size: 1.5rem;
-  z-index: 1;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.input {
-  width: 80%;
-  z-index: 1;
-  border-radius: 20px;
-  width: 110%;
-}
-
-
-.button {
-  border: none;
-  font-size: 1.5rem;
-  color: black;
-  width: 50%;
-  background: linear-gradient(rgb(0, 255, 55), rgb(182, 182, 183));
-  position: absolute;
-  top: 450px;
-  left: 110px;
-}
-
-.button {
-  border-radius: 20px;
-}
-
-.button:hover {
-  background: linear-gradient(rgb(0, 208, 255), rgb(135, 17, 17));
-
+  color: #3b82f6;
+  font-size: 1.2rem;
 }
 
 .h1 {
-  z-index: 1;
-  position: relative;
-  top: 20px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sword {
+  height: 1.5rem;
+  margin-left: 1px;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
 }
 
 .h3 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(255, 255, 255);
-  justify-self: center;
-  align-self: center;
-  justify-content: center;
-
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin: 0 0 6px 0;
 }
 
-.login {
+.subtitle {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Form structure constraints */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Modern clean text fields wrapping decorative icons */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: #6b7280;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  background-color: #1f2633;
+  border: 1px solid #2e374a;
+  border-radius: 10px;
+  padding: 12px 12px 12px 40px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+.input::placeholder {
+  color: #4b5563;
+}
+
+/* Password Micro-metric bars styling matches mockup template layout */
+.strengthIndicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.strengthBar {
+  height: 4px;
+  width: 24px;
+  background-color: #2e374a;
+  border-radius: 2px;
+}
+
+.activeBar {
+  background-color: #10b981;
+}
+
+.strengthText {
+  font-size: 0.7rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* Clean, integrated message box describing development stack speed limits */
+.disclaimerBox {
+  display: flex;
+  gap: 10px;
+  background-color: rgba(30, 41, 59, 0.4);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 4px;
+}
+
+.disclaimerIcon {
+  color: #3b82f6;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimerText {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Sleek Neon Action Trigger Button */
+.button {
+  width: 100%;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  color: #ffffff;
   border: none;
-  background-color: none;
-}
-
-.h5 {
-  z-index: 1;
-  margin: auto;
-}
-
-.h5:hover {
-  color: rgb(21, 0, 255);
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
-
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+  margin-top: 8px;
 }
 
-@keyframes rgb-shift {
-  from {
-    filter: hue-rotate(0deg);
-  }
+.button:hover {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
 
-  to {
-    filter: hue-rotate(360deg);
-  }
+.button:active {
+  transform: translateY(0);
+}
+
+/* Footer elements matching setup layout rules safely */
+.h5 {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: center;
+  margin: 24px 0 0 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.loginHighlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.loginHighlight:hover {
+  text-decoration: underline;
 }

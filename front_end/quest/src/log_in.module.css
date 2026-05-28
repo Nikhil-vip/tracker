@@ -1,90 +1,192 @@
-.body {
-  height: 100%;
-  width: 100;
-  background: linear-gradient(135deg, #000000, #00b3ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #big_cont {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #0b0f19;
+  box-sizing: border-box;
 }
 
 .container {
-  height: 500px;
+  height: 620px;
+  /* Slightly heightened to accommodate the text note safely */
   width: 400px;
-  background: black;
+  background: #161b26;
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   overflow: hidden;
   border-radius: 20px;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
-.sword {
-  transform: scale(0.8);
-  margin: 0;
-  position: relative;
-  top: 4px;
-}
-
+/* Your exact animated rotating border gradient background logic, updated to matching cyber colors */
 .container::before {
   content: "";
   position: absolute;
   width: 300px;
   height: 150%;
   top: -50px;
-  background: linear-gradient(135deg, #0d00fb, #00d9ff);
-  animation: spin 0.5s linear infinite;
+  background: linear-gradient(135deg, #00b3ff, #6366f1);
+  animation: spin 4s linear infinite;
   transition: 1s all linear;
 }
 
-label {
-  font-size: 2rem;
-  z-index: 1;
-  font-family: 'Times New Roman', Times, serif;
+/* The inner solid dark card overlaying the background beam */
+.container::after {
+  content: "";
+  position: absolute;
+  background: #161b26;
+  inset: 3px;
+  border-radius: 17px;
+  z-index: 0;
 }
 
-input {
-  padding: 10px;
-  width: 80%;
+.grag {
   z-index: 1;
-  border-radius: 20px;
-  margin: -10px 0;
-}
-
-.button {
-  padding: 10px 20px;
-  font-size: 1.5rem;
-  background-color: rgb(0, 162, 255);
-  color: black;
-  width: 70%;
-  z-index: 1;
-}
-
-.button:hover {
-  background: linear-gradient(rgb(0, 208, 255), rgb(183, 182, 182));
+  position: relative;
+  color: #00b3ff;
+  top: 15px;
+  transform: scale(3);
+  margin-bottom: 20px;
 }
 
 .h1 {
   z-index: 1;
   position: relative;
-  top: 70px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sword {
+  transform: scale(0.8);
+  margin: 0;
+  position: relative;
+  top: 2px;
+  filter: drop-shadow(0 0 4px rgba(0, 179, 255, 0.4));
 }
 
 .h3 {
   z-index: 1;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(0, 221, 255);
+  color: #f3f4f6;
+  font-size: 1rem;
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+label {
+  font-size: 0.85rem;
+  z-index: 1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+.input {
+  padding: 12px;
+  width: 80%;
+  z-index: 1;
+  border-radius: 10px;
+  background-color: #1f2633;
+  border: 1px solid #2e374a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #00b3ff;
+  box-shadow: 0 0 0 1px rgba(0, 179, 255, 0.3);
+}
+
+.input::placeholder {
+  color: #4b5563;
+}
+
+/* Free-tier performance warning block component */
+.disclaimerBox {
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  background-color: rgba(30, 41, 59, 0.4);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  margin: 15px 0 5px 0;
+  box-sizing: border-box;
+}
+
+.disclaimerIcon {
+  color: #00b3ff;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimerText {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.button {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #0088cc, #1d4ed8);
+  color: #ffffff;
+  width: 80%;
+  z-index: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 179, 255, 0.15);
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #00b3ff, #2563eb);
+  box-shadow: 0 6px 16px rgba(0, 179, 255, 0.3);
+}
+
+.h5 {
+  z-index: 1;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: center;
+  margin: 20px 0 0 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.registerHighlight {
+  color: #00b3ff;
+  font-weight: 600;
+}
+
+.registerHighlight:hover {
+  text-decoration: underline;
 }
 
 @keyframes spin {
@@ -97,81 +199,28 @@ input {
   }
 }
 
-.container::after {
-  content: "";
-  position: absolute;
-  background: linear-gradient(rgb(95, 126, 128), rgb(93, 113, 119));
-  inset: 5px;
-  border-radius: 15px;
-}
-
-/* --- Base Styles (Keep your existing desktop logic) --- */
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  /* Use min-height to prevent clipping */
-  width: 100%;
-  background: linear-gradient(135deg, #000000, #00d9ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grag {
-  z-index: 1;
-  position: relative;
-  color: rgb(0, 221, 255);
-  top: 50px;
-  transform: scale(4);
-}
-
-.container {
-  /* Dynamic width: Use 90% on small screens, maxes at 400px */
-  width: 90%;
-  max-width: 400px;
-
-  /* Use min-height for content flexibility */
-  min-height: 500px;
-  height: auto;
-
-  background: black;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 20px;
-  justify-content: center;
-  padding: 20px;
-  /* Prevents content touching edges */
-}
-
 /* --- Mobile Specific Adjustments --- */
-
 @media (max-width: 480px) {
-  label {
-    font-size: 1.5rem;
-    /* Slightly smaller for mobile */
-  }
-
-  input {
+  .container {
     width: 90%;
-    /* More breathing room */
-    padding: 12px;
-    /* Easier to tap with thumbs */
+    max-width: 400px;
+    height: auto;
+    min-height: 580px;
+    padding: 30px 15px;
+  }
+
+  .input {
+    width: 90%;
     font-size: 16px;
-    /* Prevents iOS from auto-zooming on focus */
+    /* Blocks iOS layout shifts on active input zoom */
   }
 
-  button {
-    width: 80%;
-    /* Wider button for easier interaction */
-    font-size: 1.2rem;
+  label {
+    margin-left: 5%;
   }
 
-  .container::before {
-    width: 50%;
-    /* Wider rotating beam to ensure coverage on mobile */
+  .disclaimerBox,
+  .button {
+    width: 90%;
   }
 }
